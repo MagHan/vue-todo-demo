@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <input type="text" v-model="title">
+    <input type="text" v-model="title" />
     <button type="submit">Create</button>
   </form>
 </template>
@@ -9,8 +9,8 @@
 export default {
   data() {
     return {
-      title: ''
-    }
+      title: ""
+    };
   },
   methods: {
     onSubmit() {
@@ -19,22 +19,28 @@ export default {
           id: Date.now(),
           title: this.title,
           completed: false
-        }
+        };
 
-        this.$emit('add-todo', newTodo)
-        this.title = ''
+        this.$emit("add-todo", newTodo);
+        this.title = "";
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
-  form {
-    display: flex;
-  }
+form {
+  display: flex;
+}
 
+input {
+  width: 400px;
+}
+
+@media (max-width: 468px) {
   input {
-    width: 400px;
+    width: 200px;
   }
+}
 </style>
